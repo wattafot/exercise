@@ -16,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className="w-full flex flex-col justify-center p-4 md:p-20 gap-4">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
