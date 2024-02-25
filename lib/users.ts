@@ -1,21 +1,33 @@
 const API_BASE_URL = "https://jsonplaceholder.typicode.com";
 
 async function getUsers() {
-  const response = await fetch(`${API_BASE_URL}/users`);
-  const users = await response.json();
-  return users;
+  try {
+    const response = await fetch(`${API_BASE_URL}/users`);
+    const users = await response.json();
+    return users;
+  } catch (error) {
+    throw new Error("Failed to fetch users");
+  }
 }
 
 async function getUserData(userId: number) {
-  const res = await fetch(`${API_BASE_URL}/users/${userId}`);
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch(`${API_BASE_URL}/users/${userId}`);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    throw new Error("Failed to fetch user");
+  }
 }
 
 async function getPostsByUserId(userId: number) {
-  const res = await fetch(`${API_BASE_URL}/posts?userId=${userId}`);
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch(`${API_BASE_URL}/posts?userId=${userId}`);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    throw new Error("Failed to fetch posts");
+  }
 }
 
 function getAvatarFallback(name: string) {
@@ -26,12 +38,15 @@ function getAvatarFallback(name: string) {
 }
 
 async function getUserWithPosts(userId: number) {
-  const user = await getUserData(userId);
-  console.log({ user });
-  if (!user || !user.id) return null;
+  try {
+    const user = await getUserData(userId);
+    if (!user || !user.id) return null;
 
-  const posts = await getPostsByUserId(userId);
-  return { ...user, posts };
+    const posts = await getPostsByUserId(userId);
+    return { ...user, posts };
+  } catch (error) {
+    throw new Error("Failed to fetch user with posts");
+  }
 }
 
 export { getUsers, getAvatarFallback, getUserWithPosts };
