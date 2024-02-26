@@ -1,9 +1,12 @@
+import { Post } from "@/app/_types/post";
+import { User } from "@/app/_types/user";
+
 const API_BASE_URL = "https://jsonplaceholder.typicode.com";
 
 async function getUsers() {
   try {
     const response = await fetch(`${API_BASE_URL}/users`);
-    const users = await response.json();
+    const users: User[] = await response.json();
     return users;
   } catch (error) {
     throw new Error("Failed to fetch users");
@@ -13,7 +16,7 @@ async function getUsers() {
 async function getUserData(userId: number) {
   try {
     const res = await fetch(`${API_BASE_URL}/users/${userId}`);
-    const data = await res.json();
+    const data: User = await res.json();
     return data;
   } catch (error) {
     throw new Error("Failed to fetch user");
@@ -23,14 +26,14 @@ async function getUserData(userId: number) {
 async function getPostsByUserId(userId: number) {
   try {
     const res = await fetch(`${API_BASE_URL}/posts?userId=${userId}`);
-    const data = await res.json();
+    const data: Post = await res.json();
     return data;
   } catch (error) {
     throw new Error("Failed to fetch posts");
   }
 }
 
-function getAvatarFallback(name: string = "") {
+function getAvatarFallback(name: string = ""): string {
   return name
     .split(" ")
     .map((n) => n[0])
