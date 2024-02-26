@@ -16,8 +16,8 @@ async function getUsers() {
 async function getUserData(userId: number) {
   try {
     const res = await fetch(`${API_BASE_URL}/users/${userId}`);
-    const data: User = await res.json();
-    return data;
+    const user: User = await res.json();
+    return user;
   } catch (error) {
     throw new Error("Failed to fetch user");
   }
@@ -26,7 +26,7 @@ async function getUserData(userId: number) {
 async function getPostsByUserId(userId: number) {
   try {
     const res = await fetch(`${API_BASE_URL}/posts?userId=${userId}`);
-    const data: Post = await res.json();
+    const data: Post[] = await res.json();
     return data;
   } catch (error) {
     throw new Error("Failed to fetch posts");

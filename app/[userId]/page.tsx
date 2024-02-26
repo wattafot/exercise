@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: { userId: number } }) {
         <h1 className="font-bold">{user.name}</h1>
         <p className="text-gray-500">@{user.username}</p>
       </div>
-      {user?.posts.map((post: Post) => (
+      {user?.posts?.map((post: Post) => (
         <PostCard key={post.id} post={post} user={user} />
       ))}
     </div>
