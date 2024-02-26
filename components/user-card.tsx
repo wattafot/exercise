@@ -28,13 +28,13 @@ export function UserCard({ user }: { user: User }) {
           </CardDescription>
         </CardHeader>
         <CardContent className="p-4 flex flex-col gap-2 text-sm">
-          <div className="grid grid-cols-2 gap-1.5">
+          <div className="grid grid-cols-3 gap-1">
             <div className="font-medium">Email</div>
-            <div className="text-right">{email}</div>
+            <div className="col-span-2 text-right">{email}</div>
             <div className="font-medium">Phone</div>
-            <div className="text-right">{phone}</div>
+            <div className="col-span-2 text-right">{phone}</div>
             <div className="font-medium">Location</div>
-            <div className="text-right">{address.city}</div>
+            <div className="col-span-2 text-right">{address.city}</div>
           </div>
         </CardContent>
       </Link>
