@@ -1,5 +1,5 @@
 import PostCard from "@/components/post-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { getAvatarFallback, getUserWithPosts } from "@/lib/users";
 import { notFound } from "next/navigation";
 import { Post } from "../_types/post";
@@ -12,7 +12,6 @@ export default async function Page({ params }: { params: { userId: number } }) {
   return (
     <div className="w-full flex flex-col justify-center items-center gap-2">
       <Avatar className="w-16 h-16 border">
-        <AvatarImage alt="@shadcn" src="/placeholder-user.jpg" />
         <AvatarFallback>{getAvatarFallback(user.name)}</AvatarFallback>
       </Avatar>
       <div className="flex justify-center items-center flex-col pb-8">

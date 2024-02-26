@@ -1,5 +1,5 @@
 import { User } from "@/app/_types/user";
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
+import { AvatarFallback, Avatar } from "@/components/ui/avatar";
 import {
   CardTitle,
   CardDescription,
@@ -19,7 +19,6 @@ export function UserCard({ user }: { user: User }) {
         <CardHeader className="p-4 flex flex-col items-center">
           <div className="w-12 h-12 relative">
             <Avatar className="w-10 h-10 shadow-sm border">
-              <AvatarImage alt="avatar_img" src="/avatar.jpg" />
               <AvatarFallback>{fallbackName}</AvatarFallback>
             </Avatar>
           </div>

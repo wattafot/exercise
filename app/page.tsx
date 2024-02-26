@@ -13,7 +13,7 @@ export default async function Home() {
           active users
         </p>
       </div>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 max-w-7xl">
         {users.map((user: User) => (
           <UserCard key={user.id} user={user} />
         ))}

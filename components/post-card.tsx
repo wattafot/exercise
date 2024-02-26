@@ -1,5 +1,5 @@
 import { CardHeader, CardContent, Card } from "@/components/ui/card";
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
+import { AvatarFallback, Avatar } from "@/components/ui/avatar";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getAvatarFallback } from "@/lib/users";
@@ -15,7 +15,6 @@ export default function Post({ post, user }: { post: Post; user: User }) {
         <div className="flex items-center gap-4">
           <Link href={`/${post.userId}`}>
             <Avatar className="w-10 h-10 border">
-              <AvatarImage alt="@shadcn" src="/placeholder-user.jpg" />
               <AvatarFallback>{fallbackName}</AvatarFallback>
             </Avatar>
           </Link>
