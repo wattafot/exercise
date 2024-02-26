@@ -30,7 +30,7 @@ async function getPostsByUserId(userId: number) {
   }
 }
 
-function getAvatarFallback(name: string) {
+function getAvatarFallback(name: string = "") {
   return name
     .split(" ")
     .map((n) => n[0])
